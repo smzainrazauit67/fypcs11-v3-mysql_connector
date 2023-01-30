@@ -34,8 +34,8 @@ const SignUp = () => {
     })
 
     const signUp = () => {
-        const myUrl = 'http://172.104.174.187:4000/api/signup';
-        // const myUrl = 'http://localhost:4000/api/sqlconnection';
+        const myUrl = 'http://172.104.174.187:4120/api/signup';
+        // const myUrl = 'http://localhost:4120/api/sqlconnection';
         axios.post(myUrl, formik?.values)
             .then((response) => {
                     // responseText = response.data
