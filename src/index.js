@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom/client';
 import Sqlconnection from "./components/Sqlconnection/Sqlconnection"
 // import Sidebar from "./components/Sidebar/Sidebar"
 import reportWebVitals from './reportWebVitals';
-import 'bootstrap/dist/css/bootstrap.css';
+// import 'bootstrap/dist/css/bootstrap.css';
 // import Main from "./components/main/Main"
 import './index.css';
 import 'bootstrap/dist/css/bootstrap.css';

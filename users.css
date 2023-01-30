@@ -1,0 +1,9 @@
+.users-container {
+    display: flex;
+    height: 100vh;
+}
+
+.users-table {
+    flex: 1;
+    padding: 0 10px;
+}

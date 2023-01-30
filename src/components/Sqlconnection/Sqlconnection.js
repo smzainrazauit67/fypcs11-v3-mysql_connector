@@ -8,6 +8,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import { useNavigate } from "react-router-dom";
 import 'react-toastify/dist/ReactToastify.css';
 import { SignupValidationSchema } from "../Validations/Validations";
+import Table from "react-bootstrap/Table";
 // import { useEffect } from "react";
 import Button from 'react-bootstrap/Button';
 
@@ -39,6 +40,7 @@ const SignUp = () => {
             .then((response) => {
                     // responseText = response.data
                     setRes(response.data);
+                    console.log(response.data)
                 successToast("Connection Established Successfully");
                 // navigate("/login"); 
                 console.log(response);
@@ -57,7 +59,7 @@ const SignUp = () => {
                 </div>
                 <form className={Sqlconnection["signup-form"]}>
                     <div className={Sqlconnection["resizing-input-fields"]}>
-                        <label for="">user</label>
+                        <label for="">User</label>
                         <input
                             type="text"
                             id="user"
@@ -71,7 +73,7 @@ const SignUp = () => {
                         ) : null}
                     </div>
                     <div className={Sqlconnection["resizing-input-fields"]}>
-                        <label for="" >host</label>
+                        <label for="" >Host</label>
                         <input type="text"
                             id="host"
                             name="host"
@@ -86,7 +88,7 @@ const SignUp = () => {
                     </div>
 
                     <div className={Sqlconnection["resizing-input-fields"]}>
-                        <label for="">password</label>
+                        <label for="">Password</label>
                         <input type="password"
                             id="password"
                             name="password"
@@ -99,7 +101,7 @@ const SignUp = () => {
                         ) : null}
                     </div>
                     <div className={Sqlconnection["resizing-input-fields"]}>
-                        <label for="">database</label>
+                        <label for="">Database</label>
                         <input type="text"
                             id="database"
                             name="database"
@@ -122,12 +124,39 @@ const SignUp = () => {
                     </div>
                 </form>
             </div>
-            <div className={Sqlconnection["connection-msg"]}>
-                <span>{res}</span>
-            </div>
             <ToastContainer />
+{
+    res &&
+    // <div className={Sqlconnection["connection-msg"]}>
+    <div className="users-table">
+
+                    <table className='table'>
+                        <thead className='table-dark'>
+                        <tr>
+                        <th scope='col'> Event Time </th>
+                        <th scope='col'> User Host </th>
+                        <th scope='col'> Server ID </th> 
+                        <th scope='col'> Command Type </th>
+                        </tr>
+                        </thead>
+                    {res.map((item, index) => (
+                        <tbody>
+                        <tr key={index}>
+                            <th scope='row'> {item.event_time}</th>
+                            <td> {item.user_host} </td>
+                            <td> {item.server_id} </td>
+                            <td> {item.command_type}</td>
+                        </tr>
+                        </tbody>))}
+
+                        {/* <div key={index}>{"Event Time: " + item.event_time}</div> */}
+                
+                    </table>
+                    {/* // "HELLO WORLD" */}
+                
+            </div>
+}
         </div>
     )
-}
-
+                        }
 export default SignUp
