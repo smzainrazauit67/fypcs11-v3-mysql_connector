@@ -113,9 +113,6 @@ const SignUp = () => {
                             <span className={Sqlconnection["error-message"]} >{formik.errors.database}</span>
                         ) : null}
                     </div>
-                    <div className={Sqlconnection.checkbox}>
-                        <input type="checkbox" />  Accept terms and conditions
-                </div>
                     <div className={Sqlconnection["signup-btn"]}>
                         <input type="button"
                              name="" value="Establish Connection" onClick={() => signUp()} />
