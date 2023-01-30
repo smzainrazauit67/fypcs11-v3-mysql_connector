@@ -55,7 +55,7 @@ const SignUp = () => {
             <div className={Sqlconnection["sign-up-container"]}>
                 <div className={Sqlconnection["sign-up-title"]}>
                     <img src={img1} alt="" />
-                    <span>Connecter MySQL</span>
+                    <span>Connector MySQL</span>
                 </div>
                 <form className={Sqlconnection["signup-form"]}>
                     <div className={Sqlconnection["resizing-input-fields"]}>
