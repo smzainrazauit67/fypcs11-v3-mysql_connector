@@ -12,6 +12,7 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
+import SignUp from './components/Sqlconnection/Sqlconnection';
 
 
 const router = createBrowserRouter([
@@ -20,8 +21,8 @@ const router = createBrowserRouter([
   //   element: <Main/>,
   // },
   {
-    path: "/sqlconnection",
-    element: <Sqlconnection/>,
+    path: "/",
+    element: <SignUp/>,
   },
   // {
   //   path: "/dashboard",
