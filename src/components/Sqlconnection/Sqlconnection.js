@@ -8,8 +8,9 @@ import { ToastContainer, toast } from 'react-toastify';
 import { useNavigate } from "react-router-dom";
 import 'react-toastify/dist/ReactToastify.css';
 import { SignupValidationSchema } from "../Validations/Validations";
+import { emitData, listenerData } from '../../socket';
 import Table from "react-bootstrap/Table";
-// import { useEffect } from "react";
+import { useEffect } from "react";
 import Button from 'react-bootstrap/Button';
 
 const ErrorToast = (msg) => {
@@ -21,6 +22,15 @@ const successToast = (msg) => {
 }
 const SignUp = () => {
     const [res, setRes] = useState(null);
+    const [lines, setLines] = useState([]);
+    useEffect(() => {
+    
+      return () => {
+        listenerData(setLines)
+      }
+    }, [])
+    
+    // listenerData("Hello")
 
     const navigate = useNavigate();
     const formik = useFormik({
@@ -30,7 +40,7 @@ const SignUp = () => {
             password: "",
             database: ""
         },
-        validationSchema: SignupValidationSchema
+        // validationSchema: SignupValidationSchema
     })
 
     const signUp = () => {
@@ -39,11 +49,13 @@ const SignUp = () => {
         axios.post(myUrl, formik?.values)
             .then((response) => {
                     // responseText = response.data
-                    setRes(response.data);
+                    // setLines(response.data);
+                    setRes(response.data)
                     console.log(response.data)
+                    emitData("hello")
                 successToast("Connection Established Successfully");
                 // navigate("/login"); 
-                console.log(response);
+                // console.log(response);
             })
             .catch((error) => {
                 console.log(error);
@@ -125,7 +137,7 @@ const SignUp = () => {
 {
     res &&
     // <div className={Sqlconnection["connection-msg"]}>
-    <div className="users-table">
+    <div id="my-table" className={Sqlconnection["users-table"]}>
 
                     <table className='table'>
                         <thead className='table-dark'>
@@ -136,7 +148,7 @@ const SignUp = () => {
                         <th scope='col'> Command Type </th>
                         </tr>
                         </thead>
-                    {res.map((item, index) => (
+                    {lines.map((item, index) => (
                         <tbody>
                         <tr key={index}>
                             <th scope='row'> {item.event_time}</th>

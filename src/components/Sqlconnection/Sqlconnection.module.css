@@ -89,4 +89,12 @@
 table{
     margin: 50px;
     text-align: center;
+    width: unset !important;
+}
+
+.users-table {
+height: 500px;
+width:800px;
+overflow-y: auto;
+justify-content: center;
 }
