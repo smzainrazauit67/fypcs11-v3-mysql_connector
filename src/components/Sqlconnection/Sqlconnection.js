@@ -24,10 +24,7 @@ const SignUp = () => {
     const [res, setRes] = useState(null);
     const [lines, setLines] = useState([]);
     useEffect(() => {
-    
-      return () => {
         listenerData(setLines)
-      }
     }, [])
     
     // listenerData("Hello")
@@ -143,18 +140,18 @@ const SignUp = () => {
                         <thead className='table-dark'>
                         <tr>
                         <th scope='col'> Event Time </th>
-                        <th scope='col'> User Host </th>
-                        <th scope='col'> Server ID </th> 
-                        <th scope='col'> Command Type </th>
+                        <th scope='col'> Server ID </th>
+                        <th scope='col'> Command Type </th> 
+                        <th scope='col'> Query </th>
                         </tr>
                         </thead>
                     {lines.map((item, index) => (
                         <tbody>
                         <tr key={index}>
                             <th scope='row'> {item.event_time}</th>
-                            <td> {item.user_host} </td>
                             <td> {item.server_id} </td>
-                            <td> {item.command_type}</td>
+                            <td> {item.command_type} </td>
+                            <td> {item["CONVERT(argument USING utf8)"]}</td>
                         </tr>
                         </tbody>))}
 
