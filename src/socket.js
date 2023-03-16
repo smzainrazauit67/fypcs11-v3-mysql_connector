@@ -19,8 +19,21 @@ export const listenerData = (lines) => {
     console.log('listened mysql-logs event');
     // console.log(d)
     // const myDiv = document.getElementById("data").innerHTML
-    lines(oldArr => [...oldArr, d])
+    console.log("listened: ", d)
+    if (d) {
+      lines(oldArr => [...oldArr, d])
+    }
 
+  })
+}
+
+export const listenerWatch = (watches) => {
+  socket.on("watch-logs",(d) => {
+    console.log("watched my-sql logs");
+    console.log("watched: ", d);
+    if (d) {
+      watches(oldArr => [...oldArr, d])
+    }
   })
 }
 

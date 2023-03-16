@@ -8,7 +8,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import { useNavigate } from "react-router-dom";
 import 'react-toastify/dist/ReactToastify.css';
 import { SignupValidationSchema } from "../Validations/Validations";
-import { emitData, listenerData } from '../../socket';
+import { emitData, listenerData, listenerWatch } from '../../socket';
 import Table from "react-bootstrap/Table";
 import { useEffect } from "react";
 import Button from 'react-bootstrap/Button';
@@ -23,8 +23,11 @@ const successToast = (msg) => {
 const SignUp = () => {
     const [res, setRes] = useState(null);
     const [lines, setLines] = useState([]);
+    const [watch, setWatch] = useState([]);
+    // const [watchLines, setWLines] = useState([]);
     useEffect(() => {
         listenerData(setLines)
+        listenerWatch(setWatch)
     }, [])
     
     // listenerData("Hello")
@@ -58,13 +61,15 @@ const SignUp = () => {
                 console.log(error);
                 ErrorToast("Unexpected Error!");
             })
+        // emitData("hello");
+        // emitWatch();
     };
     return (
         <div className={Sqlconnection["main-container"]}>
             <div className={Sqlconnection["sign-up-container"]}>
                 <div className={Sqlconnection["sign-up-title"]}>
                     <img src={img1} alt="" />
-                    <span>Connector MySQL</span>
+                    <span>Connector</span>
                 </div>
                 <form className={Sqlconnection["signup-form"]}>
                     <div className={Sqlconnection["resizing-input-fields"]}>
@@ -131,6 +136,7 @@ const SignUp = () => {
                 </form>
             </div>
             <ToastContainer />
+            <div id="output" className={Sqlconnection["output-all"]}>
 {
     res &&
     // <div className={Sqlconnection["connection-msg"]}>
@@ -145,23 +151,38 @@ const SignUp = () => {
                         <th scope='col'> Query </th>
                         </tr>
                         </thead>
-                    {lines.map((item, index) => (
+                        {
+                    lines.map((item, index) => (
                         <tbody>
                         <tr key={index}>
-                            <th scope='row'> {item.event_time}</th>
+                            <th scope='row'> {item.et}</th>
                             <td> {item.server_id} </td>
                             <td> {item.command_type} </td>
-                            <td> {item["CONVERT(argument USING utf8)"]}</td>
+                            <td> {item.qu}</td>
                         </tr>
-                        </tbody>))}
-
-                        {/* <div key={index}>{"Event Time: " + item.event_time}</div> */}
-                
+                        </tbody>
+                        ))
+                        } 
                     </table>
                     {/* // "HELLO WORLD" */}
                 
             </div>
 }
+{
+            watch &&
+            <div className={Sqlconnection["main-container"]}>
+                    <div className={Sqlconnection["output-card"]}>
+                    <h2>Data Recieved:</h2>
+                    <p></p>
+                    {watch.map((item, index) => (
+                        <div key={index}>{item.resLine}</div>
+                    ))}
+                        {/* <div>{watchLines[watchLines.length - 1]}</div> */}
+                    
+                    </div>
+            </div>
+}
+</div>
         </div>
     )
                         }

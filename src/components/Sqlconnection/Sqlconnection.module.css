@@ -4,12 +4,26 @@
     box-sizing: border-box;
     font-family: sans-serif;
 }
+.output-card {
+    background-color: white;
+    padding: 20px;
+    margin-top: 20px;
+    border: 2px solid #8b8b8b;
+    border-radius: 8px;
+    height: 250px;
+    white-space: nowrap;
+    width: 700px;
+    overflow-x: auto;
+    margin-bottom: -200px;
+
+}
 .main-container{
     height: 100vh;
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
+    /* overflow: auto; */
 }
 .sign-up-container{
     width: 450px;
@@ -24,8 +38,8 @@
     justify-content: center;
 }
 .sign-up-title img{
-    height: 37px;
-    width: 37px;
+    height: 40px;
+    width: 60px;
 }
 .sign-up-title span{
     font-size: 32px;
@@ -93,8 +107,14 @@ table{
 }
 
 .users-table {
-height: 500px;
+height: 400px;
 width:800px;
 overflow-y: auto;
 justify-content: center;
+margin-bottom: -300px;
+}
+
+.output-all {
+    flex-direction: row;
+    flex-wrap:wrap;
 }
