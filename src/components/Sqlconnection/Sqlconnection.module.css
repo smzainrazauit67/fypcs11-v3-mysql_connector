@@ -104,9 +104,11 @@ table{
     margin: 50px;
     text-align: center;
     width: unset !important;
+    column-span: 10px;
 }
 
 .users-table {
+margin-top: 100px;
 height: 400px;
 width:800px;
 overflow-y: auto;

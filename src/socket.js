@@ -27,6 +27,7 @@ export const listenerData = (lines) => {
   })
 }
 
+//For live streaming
 export const listenerWatch = (watches) => {
   socket.on("watch-logs",(d) => {
     console.log("watched my-sql logs");
