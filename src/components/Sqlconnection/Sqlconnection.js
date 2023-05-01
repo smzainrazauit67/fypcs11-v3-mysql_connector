@@ -169,18 +169,19 @@ const SignUp = () => {
             </div>
 }
 {
-            watch &&
-            <div className={Sqlconnection["main-container"]}>
-                    <div className={Sqlconnection["output-card"]}>
-                    <h2>Data Recieved:</h2>
-                    <p></p>
+            res &&
+            // <div className={Sqlconnection["main-container"]}>
+            <div className={Sqlconnection["output-card"]}> 
+            <h2>Logs Recieved:</h2>
                     {watch.map((item, index) => (
-                        <div key={index}>{item.resLine}</div>
-                    ))}
+                        <div key={index}>
+                            {item.resLine}
+                        </div>
+                       ))}
                         {/* <div>{watchLines[watchLines.length - 1]}</div> */}
                     
-                    </div>
             </div>
+            // </div>
 }
 </div>
         </div>
