@@ -35,17 +35,17 @@ const SignUp = () => {
     const navigate = useNavigate();
     const formik = useFormik({
         initialValues: {
-            user: "",
+            user: "root",
             host: "",
             password: "",
-            database: ""
+            database: "mysql"
         },
         // validationSchema: SignupValidationSchema
     })
 
     const signUp = () => {
-        const myUrl = 'http://172.104.174.187:4120/api/sqlconnection';
-        // const myUrl = 'http://localhost:4120/api/sqlconnection';
+        // const myUrl = 'http://172.104.174.187:4120/api/sqlconnection';
+        const myUrl = 'http://localhost:4120/api/sqlconnection';
         axios.post(myUrl, formik?.values)
             .then((response) => {
                     // responseText = response.data
@@ -78,7 +78,8 @@ const SignUp = () => {
                             type="text"
                             id="user"
                             name="user"
-                            value={formik.values.user}
+                            value="root"
+                            disabled
                             onChange={formik?.handleChange}
                             onBlur={formik.handleBlur}
                         />
@@ -119,7 +120,8 @@ const SignUp = () => {
                         <input type="text"
                             id="database"
                             name="database"
-                            value={formik.values.database}
+                            value="mysql"
+                            disabled
                             onChange={formik?.handleChange}
                             onBlur={formik.handleBlur}
                         />
@@ -128,10 +130,16 @@ const SignUp = () => {
                         ) : null}
                     </div>
                     <div className={Sqlconnection["signup-btn"]}>
+                    <div className={Sqlconnection["archive-btn"]}>
                         <input type="button"
-                             name="" value="Establish Connection" onClick={() => signUp()} />
+                             name="" value="Archive Logs" onClick={() => signUp()} />
+                    </div>
+                    <div className={Sqlconnection["live-btn"]}>
+                        <input type="button"
+                             name="" value="Live Tail" onClick={() => signUp()} />
                     </div>
                     <div className={Sqlconnection["back-to-login"]}>
+                    </div>
                     </div>
                 </form>
             </div>

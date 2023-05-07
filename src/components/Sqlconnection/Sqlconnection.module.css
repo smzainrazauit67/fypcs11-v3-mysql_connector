@@ -5,18 +5,69 @@
     font-family: sans-serif;
 }
 .output-card {
-    background-color: white;
-    /* padding: 20px; */
+    background-color: black;
+    background-image: radial-gradient(
+      rgba(0, 150, 0, 0.75), black 120%
+    );
+    height: 40vh;
+    width: 120vh;
     margin: 30px;
-    /* margin-top: 20px; */
+    overflow: auto;
+    padding: 2rem;
+    color: white;
+    font: 1.3rem Inconsolata, monospace;
+    text-shadow: 0 0 5px #C8C8C8;
+    box-shadow: -0 0 40px #000000;
+    }
+    .output-card::-webkit-scrollbar {
+      width: 10px;
+      background-color: #F5F5F5;
+  }
+  .output-card::-webkit-scrollbar-thumb {
+      border-radius: 10px;
+      background-color: #FFF;
+      background-image: -webkit-gradient(linear,
+                                         40% 0%,
+                                         75% 84%,
+                                         from(#4D9C41),
+                                         to(#19911D),
+                                         color-stop(.6,#54DE5D))
+  }
+  ::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: repeating-linear-gradient(
+        0deg,
+        rgba(black, 0.15),
+        rgba(black, 0.15) 1px,
+        transparent 1px,
+        transparent 2px
+      );
+      pointer-events: none;
+  }
+  .output-card::selection {
+      text-shadow: none;
+    }
+    pre {
+      margin: 0;
+   /* background-color: white;
+   
+    margin: 30px;
+    
     border: 2px solid #8b8b8b;
     border-radius: 8px;
     height: 250px;
     white-space: nowrap;
     width: 700px;
     overflow-x: auto;
-    /* margin-bottom: -200px; */
+    margin-bottom: -200px; */
 
+     /* padding: 20px; */
+     /* margin-top: 20px; */
 }
 .main-container{
     height: 100vh;
@@ -74,7 +125,8 @@
 .signup-btn{
     display: flex;
     justify-content: center;
-    margin-top: 33px;
+    margin-top: 30px;
+    column-gap: 10px;
 }
 .signup-btn input{
     color: #fff;
@@ -82,7 +134,8 @@
     height: 35px;
     border: none;
     border-radius: 6px;
-    width: 357px;
+    width: 180px;
+    margin-bottom: 20px;
 }
 .back-to-login{
     display: flex;
@@ -110,8 +163,8 @@ table{
 
 .users-table {
 /* margin-top: 100px; */
-height: 400px;
-width:800px;
+height: 350px;
+width:900px;
 overflow-y: auto;
 justify-content: center;
 margin-bottom: 30px;
