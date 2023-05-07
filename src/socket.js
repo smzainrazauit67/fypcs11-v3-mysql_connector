@@ -6,6 +6,10 @@ const socket = io(serverURl);
 
 //Event emitters.
 
+export const emitWatch = (data) => {
+  socket.emit('watch-logs')
+}
+
 export const emitData = (data) => {
     console.log('mysql-logs event triggered!')
   socket.emit("mysql-logs", data);
