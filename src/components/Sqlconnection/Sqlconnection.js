@@ -49,8 +49,8 @@ const SignUp = () => {
     const archLog = () => {
         setFlag1(true);
         setFlag2(false);
-        // const myUrl = 'http://172.104.174.187:4120/api/sqlconnection';
-        const myUrl = 'http://localhost:4120/api/sqlconnection';
+        const myUrl = 'http://172.104.174.187:4120/api/sqlconnection';
+        // const myUrl = 'http://localhost:4120/api/sqlconnection';
         axios.post(myUrl, formik?.values)
             .then((response) => {
                     // responseText = response.data
