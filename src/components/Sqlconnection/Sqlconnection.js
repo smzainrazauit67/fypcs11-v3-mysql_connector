@@ -46,7 +46,7 @@ const SignUp = () => {
         // validationSchema: SignupValidationSchema
     })
 
-    const archLog = () => {
+    const  archiveLogs = () => {
         setFlag1(true);
         setFlag2(false);
         const myUrl = 'http://172.104.174.187:4120/api/sqlconnection';
@@ -57,7 +57,7 @@ const SignUp = () => {
                     // setLines(response.data);
                     setRes(response.data)
                     console.log(response.data)
-                    // emitData("hello")
+                    emitData("hello")
                 successToast("Connection Established Successfully");
                 // navigate("/login"); 
                 // console.log(response);
@@ -70,7 +70,7 @@ const SignUp = () => {
         // emitWatch();
     };
 
-    const livLog = () => {
+    const liveLogs = () => {
         setFlag1(false);
         setFlag2(true);
         emitWatch('hello')
@@ -80,7 +80,7 @@ const SignUp = () => {
     return (
         <div className={Sqlconnection["main-container"]}>
         <div className={Sqlconnection["header-button"]}>
-<Button variant="primary">Back to Dashboard</Button>
+<Button variant="primary" onClick={() => navigate("/dashboard")}>Back to Dashboard</Button>
 <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" className={Sqlconnection["bi bi-info-circle-fill"]} viewBox="0 0 16 16">
   <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/>
 </svg>
@@ -151,11 +151,11 @@ const SignUp = () => {
                     <div className={Sqlconnection["signup-btn"]}>
                     <div className={Sqlconnection["archive-btn"]}>
                         <input type="button"
-                             name="" value="Archive Logs" onClick={() => archLog()} />
+                             name="" value="Archive Logs" onClick={() => archiveLogs()} />
                     </div>
                     <div className={Sqlconnection["live-btn"]}>
                         <input type="button"
-                             name="" value="Live Tail" onClick={() => livLog()} />
+                             name="" value="Live Tail" onClick={() => liveLogs()} />
                     </div>
                     <div className={Sqlconnection["back-to-login"]}>
                     </div>
