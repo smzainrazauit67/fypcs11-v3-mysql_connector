@@ -75,7 +75,6 @@ const SignUp = () => {
         setFlag2(true);
         emitWatch('hello')
     }
-
     
     return (
         <div className={Sqlconnection["main-container"]}>
@@ -92,7 +91,7 @@ const SignUp = () => {
                 </div>
                 <form className={Sqlconnection["signup-form"]}>
                     <div className={Sqlconnection["resizing-input-fields"]}>
-                        <label for="">User</label>
+                        <label htmlFor="">User</label>
                         <input
                             type="text"
                             id="user"
@@ -107,7 +106,7 @@ const SignUp = () => {
                         ) : null}
                     </div>
                     <div className={Sqlconnection["resizing-input-fields"]}>
-                        <label for="" >Host</label>
+                        <label htmlFor="" >Host</label>
                         <input type="text"
                             id="host"
                             name="host"
@@ -122,7 +121,7 @@ const SignUp = () => {
                     </div>
 
                     <div className={Sqlconnection["resizing-input-fields"]}>
-                        <label for="">Password</label>
+                        <label htmlFor="">Password</label>
                         <input type="password"
                             id="password"
                             name="password"
@@ -135,7 +134,7 @@ const SignUp = () => {
                         ) : null}
                     </div>
                     <div className={Sqlconnection["resizing-input-fields"]}>
-                        <label for="">Database</label>
+                        <label htmlFor="">Database</label>
                         <input type="text"
                             id="database"
                             name="database"
@@ -213,5 +212,5 @@ const SignUp = () => {
 </div>
         </div>
     )
-                        }
+    }
 export default SignUp
