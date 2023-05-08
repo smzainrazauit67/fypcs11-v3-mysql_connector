@@ -9,7 +9,7 @@
     background-image: radial-gradient(
       rgba(0, 150, 0, 0.75), black 120%
     );
-    height: 80vh;
+    height: 65vh;
     width: 120vh;
     margin: 30px;
     overflow: auto;
@@ -76,6 +76,7 @@
     align-items: center;
     justify-content: center;
     /* overflow: auto;      */
+    background-color:#C8C8C8;
 }
 
 .header-button{
@@ -91,9 +92,10 @@
 .sign-up-container{
     margin-top: 120px;
     width: 450px;
+    background-color: #FFFFFF;
     border: 2px solid #8b8b8b;
     border-radius: 8px;
-    box-shadow: #000000;
+    box-shadow: 0 0 40px #000000;
 }
 .sign-up-title{
     /* border: 1px solid; */
@@ -177,12 +179,17 @@
 
 .users-table {
 /* margin-top: 100px; */
-height: 400px;
+height: 500px;
 width:900px;
 overflow-y: auto;
 justify-content: center;
 margin-bottom: 30px;
+background-color: #FFFFFF;
 }
+
+/* #tbody-out{
+    overflow: auto
+} */
 
 .output-all {
     margin-top: 100px;

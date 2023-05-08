@@ -168,7 +168,7 @@ const SignUp = () => {
     // <div className={Sqlconnection["connection-msg"]}>
     <div id="my-table" className={Sqlconnection["users-table"]}>
 
-                    <table className='table'>
+                    <Table className='table'>
                         <thead className='table-dark'>
                         <tr>
                         <th scope='col'> Event Time </th>
@@ -177,19 +177,19 @@ const SignUp = () => {
                         <th scope='col'> Query </th>
                         </tr>
                         </thead>
+                        <tbody id='tbody-out'>
                         {
                     res.map((item, index) => (
-                        <tbody>
                         <tr key={index}>
                             <th scope='row'> {item.et}</th>
                             <td> {item.server_id} </td>
                             <td> {item.command_type} </td>
                             <td> {item.qu}</td>
                         </tr>
-                        </tbody>
                         ))
-                        } 
-                    </table>
+                    } 
+                    </tbody>
+                    </Table>
                     {/* // "HELLO WORLD" */}
                 
             </div>
